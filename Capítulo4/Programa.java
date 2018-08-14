@@ -3,10 +3,16 @@ class Conta {
     String titular;
     double saldo;
 
-    void saca(double quantidade) {
-        double novoSaldo = this.saldo - quantidade;
-        this.saldo = novoSaldo;
+    boolean saca(double valor) {
+        if (this.saldo < valor) {
+            return false;
+        }
+        else {
+            this.saldo = this.saldo - valor;
+            return true;
+        }
     }
+
 
     void deposita(double quantidade) {
         this.saldo += quantidade;
@@ -23,11 +29,19 @@ class Programa {
         minhaConta.titular = "Duke";
         minhaConta.saldo = 1000.0;
 
-        //saca 200 reais
+        // saca 200 reais
         minhaConta.saca(200);
 
         // deposita 500 reais
         minhaConta.deposita(500);
         System.out.println("Saldo atual: " + minhaConta.saldo);
+
+        // tentar sacar mais que o limite
+        System.out.println("Sacar 2000");
+        if (minhaConta.saca(2000)) {
+        System.out.println("Consegui sacar");
+        } else {
+        System.out.println("Não consegui sacar");
+        }
     }
 }
