@@ -51,9 +51,9 @@ class Programa {
         // tentar sacar mais que o limite
         System.out.println("Sacar 2000");
         if (minhaConta.saca(2000)) {
-        System.out.println("Consegui sacar");
+            System.out.println("Consegui sacar");
         } else {
-        System.out.println("Não consegui sacar");
+            System.out.println("Não consegui sacar");
         }
     }
 }
