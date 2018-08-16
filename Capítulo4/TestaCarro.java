@@ -32,7 +32,9 @@ class Carro {
         if (this.velocidadeAtual >= 40 && this.velocidadeAtual < 80) {
             return 2;
         }
-            return 3;
+        if (this.velocidadeAtual>= 80) {
+            return 3;    
+        }
     }
 }
 
