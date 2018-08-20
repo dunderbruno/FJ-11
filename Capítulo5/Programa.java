@@ -3,12 +3,15 @@ class Conta {
     private String titular;
     private double saldo;
     private double limite;
+    private static int totalDeContas;
 
     // contrutor
     Conta (String titular) {
         this.titular = titular;
         this.limite = 1000
+        Conta.totalDeContas = Conta.totalDeContas + 1;
     }
+
 
     public double getSaldo() {
         return this.saldo + this.limite;
@@ -47,6 +50,9 @@ class Conta {
         this.titular = titular
     }
 
+    public static int getTotalDeContas() {
+        return Conta.totalDeContas.
+    }
 }
 
 class Cliente {
