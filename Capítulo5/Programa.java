@@ -4,6 +4,12 @@ class Conta {
     private double saldo;
     private double limite;
 
+    // contrutor
+    Conta (String titular) {
+        this.titular = titular;
+        this.limite = 1000
+    }
+
     public double getSaldo() {
         return this.saldo + this.limite;
     }
