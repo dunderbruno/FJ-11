@@ -1,24 +1,27 @@
 class Conta {
     int numero;
-    String titular;
-    double saldo;
+    private String titular;
+    private double saldo;
+    private double limite;
 
-    boolean saca(double valor) {
-        if (this.saldo < valor) {
-            return false;
-        }
-        else {
-            this.saldo = this.saldo - valor;
-            return true;
-        }
+    public double getSaldo() {
+        return this.saldo + this.limite;
     }
 
-
-    void deposita(double quantidade) {
+    public void deposita(double quantidade) {
         this.saldo += quantidade;
     }
 
-    boolean transfere(Conta destino, double valor) {
+    public void saca(double valor) {
+        // permite sacar até o saldo
+        if (this.saldo < valor) {
+            System.out.println("Não é permitido sacar um valor maior que o saldo!")
+        } else {
+            this.saldo = this.saldo - valor;
+        }
+    }
+
+    public boolean transfere(Conta destino, double valor) {
         boolean retirou = this.saca(valor);
         if (retirou == false) {
             // não deu pra sacar!
@@ -28,6 +31,33 @@ class Conta {
             destino.deposita(valor);
             return true;
         }
+    }
+
+    public String getTitular() {
+        return this.titular
+    }
+
+    public void setTitular(String titular) {
+        this.titular = titular
+    }
+
+}
+
+class Cliente {
+    private String nome;
+    private String endereco;
+    private String cpf;
+    private int idade;
+
+    public void mudaCPF(String cpf) {
+        if (this.idade <= 60) {
+            validaCPF(cpf);
+        }
+        this.cpf = cpf;
+    }
+
+    private void validaCPF(String cpf) {
+        // série de regras aqui, falha caso nçao seja válido
     }
 }
 
