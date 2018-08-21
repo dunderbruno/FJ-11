@@ -8,25 +8,34 @@ class Conta {
     // contrutor
     Conta (String titular) {
         this.titular = titular;
-        this.limite = 1000
+        this.limite = 1000;
         Conta.totalDeContas = Conta.totalDeContas + 1;
     }
-
 
     public double getSaldo() {
         return this.saldo + this.limite;
     }
 
-    public void deposita(double quantidade) {
-        this.saldo += quantidade;
+    public double getLimite() {
+        return this.limite;
     }
 
-    public void saca(double valor) {
+    public void setLimite(double limite) {
+        this.limite = limite;
+    }
+
+    public void deposita(double quantidade) {
+        this.saldo = this.saldo + quantidade;
+    }
+
+    public boolean saca(double valor) {
         // permite sacar até o saldo
         if (this.saldo < valor) {
-            System.out.println("Não é permitido sacar um valor maior que o saldo!")
+            System.out.println("Não é permitido sacar um valor maior que o saldo!");
+            return false;
         } else {
             this.saldo = this.saldo - valor;
+            return true;
         }
     }
 
@@ -43,15 +52,15 @@ class Conta {
     }
 
     public String getTitular() {
-        return this.titular
+        return this.titular;
     }
 
     public void setTitular(String titular) {
-        this.titular = titular
+        this.titular = titular;
     }
 
     public static int getTotalDeContas() {
-        return Conta.totalDeContas.
+        return Conta.totalDeContas;
     }
 }
 
@@ -77,18 +86,17 @@ class Programa {
     public static void main(String[] args) {
         // criando a conta
         Conta minhaConta;
-        minhaConta = new Conta();
+        minhaConta = new Conta("Duke");
 
         // alterando os valores de minhaConta
-        minhaConta.titular = "Duke";
-        minhaConta.saldo = 1000.0;
+        minhaConta.deposita(1000.0);
 
         // saca 200 reais
         minhaConta.saca(200);
 
         // deposita 500 reais
         minhaConta.deposita(500);
-        System.out.println("Saldo atual: " + minhaConta.saldo);
+        System.out.println("Saldo atual: " + minhaConta.getSaldo());
 
         // tentar sacar mais que o limite
         System.out.println("Sacar 2000");
