@@ -12,6 +12,10 @@ class Conta {
         Conta.totalDeContas = Conta.totalDeContas + 1;
     }
 
+    Conta () {
+        this.titular = "SEM ARGUMENTOS";
+    }
+
     public double getSaldo() {
         return this.saldo + this.limite;
     }
@@ -87,7 +91,11 @@ class Programa {
         // criando a conta
         Conta minhaConta;
         minhaConta = new Conta("Duke");
+        Conta suaConta;
+        suaConta = new Conta();
 
+        System.out.println(minhaConta.getTitular());
+        System.out.println(suaConta.getTitular());
         // alterando os valores de minhaConta
         minhaConta.deposita(1000.0);
 
@@ -103,7 +111,7 @@ class Programa {
         if (minhaConta.saca(2000)) {
             System.out.println("Consegui sacar");
         } else {
-            System.out.println("Não consegui sacar");
         }
+            System.out.println("Não consegui sacar");
     }
 }
