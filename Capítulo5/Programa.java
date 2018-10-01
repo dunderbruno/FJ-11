@@ -5,7 +5,7 @@ class Conta {
     private double limite;
     private static int totalDeContas;
 
-    // contrutor
+    // construtor
     Conta (String titular) {
         this.titular = titular;
         this.limite = 1000;
